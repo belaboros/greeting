@@ -1,31 +1,17 @@
-apiVersion: skaffold/v1alpha2
+apiVersion: skaffold/v1beta12
 kind: Config
 build:
-  tagPolicy:
-    envTemplate:
-      template: "{{.DOCKER_REGISTRY}}/belaboros/greeting:{{.VERSION}}"
-  artifacts:
-  - imageName: changeme
-    workspace: .
-    docker: {}
-  local: {}
+ tagPolicy:
+   sha256: {}
+ artifacts:
+ - image: belaboros/greeting
+ local:
+   useBuildkit: true
 deploy:
-  kubectl:
-    manifests:
-profiles:
-- name: dev
-  build:
-    tagPolicy:
-      envTemplate:
-        template: "{{.DOCKER_REGISTRY}}/belaboros/greeting:{{.DIGEST_HEX}}"
-    artifacts:
-    - docker: {}
-    local: {}
-  deploy:
-    helm:
-      releases:
-      - name: greeting
-        chartPath: charts/greeting
-        setValueTemplates:
-          image.repository: "{{.DOCKER_REGISTRY}}/belaboros/greeting"
-          image.tag: "{{.DIGEST_HEX}}"
+ kubectl:
+   manifests:
+     - k8s/greeting-deployment.yml
+
+
+
+
