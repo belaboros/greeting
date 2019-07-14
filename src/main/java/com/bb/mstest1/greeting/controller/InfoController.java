@@ -1,5 +1,6 @@
-package com.bb.mstest1.greeting;
+package com.bb.mstest1.greeting.controller;
 
+import com.bb.mstest1.greeting.Application;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.springframework.beans.factory.annotation.Value;

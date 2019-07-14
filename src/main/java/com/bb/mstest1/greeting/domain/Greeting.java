@@ -1,4 +1,4 @@
-package com.bb.mstest1.greeting;
+package com.bb.mstest1.greeting.domain;
 
 public class Greeting {
 
