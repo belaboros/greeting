@@ -1,7 +1,7 @@
 # Greeting Microservice
 
 
-Small stateless microservice to show development workflow.
+Small stateless microservice exposing REST API to show development workflow.
 
 
 ## Run 
@@ -15,7 +15,3 @@ Small stateless microservice to show development workflow.
 ### Run in a Kubernetes cluster
 22_run_k8s.sh
 
-
-
-
-  
